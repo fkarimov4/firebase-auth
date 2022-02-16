@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -20,9 +22,8 @@ function Login({ user, setUser }) {
     const localUser = localStorage.getItem("displayName");
 
     if (localUser) {
-        setUser(localUser)
+      setUser(localUser);
     }
-
   }, []);
 
   const handleGoogleLogin = () => {
@@ -30,10 +31,9 @@ function Login({ user, setUser }) {
       .then((result) => {
         setUser(result.user);
         localStorage.setItem("displayName", result.user.displayName);
-        localStorage.setItem("profilePhoto", result.user.photoURL)
-        navigate('/')
+        localStorage.setItem("profilePhoto", result.user.photoURL);
+        navigate("/");
       })
-
 
       .catch(alert);
   };
@@ -74,20 +74,13 @@ function Login({ user, setUser }) {
           />
         </label>
         <br />
-        <input type="submit" value="Login" />
+        <Button variant="primary" type="submit">
+          Login
+        </Button>
       </form>
-      <button
-        onClick={handleGoogleLogin}
-        style={{
-          backgroundColor: "black",
-          color: "white",
-          border: "none",
-          padding: "5px 20px",
-          margin: "10px 0",
-        }}
-      >
+      <Button variant="danger" onClick={handleGoogleLogin}>
         Sign in with Google
-      </button>
+      </Button>
       <p>
         Not a user? <Link to="/signup">Sign Up</Link>
       </p>
