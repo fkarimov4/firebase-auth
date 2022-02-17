@@ -23,7 +23,7 @@ function Welcome({ user, setUser }) {
       {localStorage.getItem("profilePhoto") && (
         <img
           src={localStorage.getItem("profilePhoto")}
-          alt={"Profile picture of logged-in user"}
+          alt={"Avatar of logged-in user"}
         />
       )}
       <button onClick={handleLogout}>Sign out</button>

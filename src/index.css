@@ -14,7 +14,7 @@ body {
   background-color: #f7f7fc;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   body {
     background-color: aquamarine;
   }

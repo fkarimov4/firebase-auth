@@ -53,7 +53,7 @@ function Login({ user, setUser }) {
     <>
       <h1>Login</h1>
       <hr />
-      <form onSubmit={handleFormSubmit}>
+      <form className="form" onSubmit={handleFormSubmit}>
         <label>
           Email:
           <br />
